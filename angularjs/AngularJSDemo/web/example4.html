@@ -1,0 +1,29 @@
+<!-- Author: Suhaib Qaiser www.suhaibqaiser.com -->
+<html ng-app="myApp">
+<head>
+<title>AngularJS Demo Sample4</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+
+<style>
+div {
+	padding-top: 10px;
+}
+</style>
+<script type="text/ng-template" id="nestedexample3.html">
+ <div>
+Nested Input: <input id="text2" ng-model="nestedTextModel.value1" ng-blur="textChanged2()">
+<button ng-click="fetchValue()" >Fetch</button>
+</div>
+</script>
+</head>
+<body>
+	<h1>AngularJS Sample Program 4</h1>
+	<div ng-controller="TextCtrl">
+		Input: <input id="text1" ng-model="textModel.value1" ng-blur="textChanged1()"> <br />
+		<nested-input></nested-input>
+		<br /> Output: <label id="label1">{{textModel.value1}}</label>
+	</div>
+	<script src="script4.js"></script>
+<body>
+</html>

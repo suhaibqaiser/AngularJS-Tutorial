@@ -1,0 +1,78 @@
+<!-- Author: Suhaib Qaiser -->
+<html>
+<head>
+<style>
+div {
+padding-top : 10px;
+}
+</style>
+</head>
+
+<body>
+<h1>Sample Program 3</h1>
+<div>
+<select id="selector" onchange="changeModel(this)">
+<option value="1" selected="selected">Model1</option>
+<option value="2" >Model2</option>
+</select>
+</div>
+<div>
+Input : <input type="text" value="" id="text1" onkeyup="processData(this)"/>
+</div>
+<div>
+Output: <label id="label1" ></label>
+<div>
+<button id="button1" onclick="retrieveValue()" >Fetch Value</button>
+
+<script>
+/* http://www.phpied.com/3-ways-to-define-a-javascript-class/ */
+var textModel1 = new function() {
+	this.counter = 0;
+	this.value = "";
+	this.addValue = function(valueText) {
+		this.value = valueText;
+		this.counter++;
+		console.log("model 1 value added" + this.counter);
+	};
+	this.getVal = function() {
+		return this.value;
+	};
+	
+}
+function TextModel2() {
+	this.counter = 0;
+	this.value = "";
+}
+TextModel2.prototype.addValue = function(valueText) {
+		this.value = valueText;
+		this.counter++;
+		console.log("model 2 value added" + this.counter);
+	};
+TextModel2.prototype.getVal = function() {
+		return this.value;
+	};
+var textModel2 = new TextModel2();
+var selectModel = textModel1;
+function changeModel(selector) {
+	var selection = selector.options[selector.selectedIndex].value;
+	if(selection == 1) {
+		selectModel = textModel1;
+	}else {
+		selectModel = textModel2;
+	}
+	reset();
+}
+function processData(text) {
+selectModel.addValue(text.value);
+}
+function retrieveValue() {
+	document.getElementById("label1").innerHTML = selectModel.getVal();
+}
+function reset() {
+	document.getElementById("label1").innerHTML = selectModel.getVal();
+	document.getElementById("text1").value = selectModel.getVal();
+}
+</script>
+<body>
+
+</html>

@@ -1,0 +1,21 @@
+<!-- Author: Suhaib Qaiser www.suhaibqaiser.com -->
+<html ng-app="myApp">
+<head>
+<title>AngularJS Demo Sample2</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+<style>
+	div {
+		padding-top: 10px;
+	}
+</style>
+</head>
+<body>
+	<h1>AngularJS Sample Program 2</h1>
+	<div ng-controller="TextCtrl">
+		Input: <input id="text1" ng-model="textModel.value1">
+		<br />
+		Output: <input type="text" id="label1" value="{{textModel.value1}}" ></input>
+	</div>
+	<script src="script2.js"></script>
+<body>
+</html>

@@ -1,0 +1,37 @@
+<!-- Author: Suhaib Qaiser -->
+<html>
+<head>
+</head>
+
+<body>
+<h1>Sample Program 2</h1>
+<div>
+Input : <input type="text" value="" id="text1" onkeyup="processData(this)"/>
+</div>
+Output: <label id="label1" ></label>
+<button id="button1" onclick="retrieveValue()" >Fetch Value</button>
+
+<script>
+var textModel = new function() {
+	this.counter = 0;
+	this.value = "";
+	this.addValue = function(valueText) {
+		this.value = valueText;
+		this.counter++;
+		console.log("value added" + this.counter);
+	};
+	this.getVal = function() {
+		return this.value;
+	};
+	
+}
+function processData(text) {
+textModel.addValue(text.value);
+}
+function retrieveValue() {
+	document.getElementById("label1").innerHTML = textModel.getVal();
+}
+</script>
+<body>
+
+</html>
